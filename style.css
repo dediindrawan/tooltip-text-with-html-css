@@ -1,0 +1,81 @@
+/* reset styling default css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* styling for html & body */
+html,
+body {
+  background-color: rgb(37, 40, 46);
+  color: rgb(225, 225, 225);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* styling for parent of all elements here */
+.container {
+  width: 50%;
+  height: 30%;
+  border: 10px double rgb(110, 72, 170);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 4px rgb(110, 72, 170);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* styling for text element */
+.text {
+  position: absolute;
+  text-transform: capitalize;
+  border-bottom: 2px solid rgb(225, 225, 225);
+}
+
+/* styling for tooltip element before show up */
+.tooltip {
+  position: absolute;
+  top: 17%;
+  text-transform: capitalize;
+  background-color: rgb(110, 72, 170);
+  border-radius: 5px;
+  padding: 0.5em;
+  visibility: hidden;
+}
+
+/* styling pseudo element "::before" to create bottom arrow */
+.tooltip::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 60%;
+  left: 45%;
+  border: 10px solid rgb(110, 72, 170);
+  transform: rotate(45deg);
+}
+
+/* styling when text on hover position to show up tooltip element */
+.text:hover ~ .tooltip {
+  visibility: visible;
+  animation: animate 0.5s forwards;
+}
+
+/* styling for showing animation tooltip effect in hover position or when cursor at above "text element" */
+@keyframes animate {
+  0% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
